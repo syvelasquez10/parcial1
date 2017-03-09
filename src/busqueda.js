@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import axios from 'axios';
 import Columna from './columna';
 
 class Busqueda extends Component {
@@ -8,52 +7,33 @@ class Busqueda extends Component {
     super(props);
     this.state = {
       busqueda: '',
-      imagenes: []
+      colores:['','Blue','Purple','Orange','Yellow','Green']
     }
     this.handleInputChange = this.handleInputChange.bind(this);
   }
 
   handleInputChange(event) {
-    console.log(event.target.value);
     this.setState({
       [event.target.name]: event.target.value
     });
-    axios.get(this.props.url+'/'+event.target.value)
-    .then(response => {
-      console.log(response.data.photos.photo);
-      this.setState({
-        imagenes: response.data.photos.photo.splice(0,4)
-      });
-    })
-  }
-
-  cargarImagenes(imagenes) {
-
   }
 
   render() {
-    return(
-      <div>
-        <div className="row">
-          <div className="col-md-5">
-            <input size="60" type="text" name="busqueda" value={this.state.busqueda} onChange={this.handleInputChange} placeholder="Escribe algo para buscar" required />
+      return(
+        <div>
+          <div className="row">
+            <div className="col-md-5">
+              <input size="60" type="text" name="busqueda" value={this.state.busqueda} onChange={this.handleInputChange} placeholder="Escribe algo para buscar" required />
+            </div>
           </div>
-        </div>
-        <br/>
-        <div className="row">
-          <Columna imagenes={this.state.imagenes}/>
-          <div className="col-md-2">
-            {this.state.imagenes.map((imagen, index) =>{
-              var img="http://farm5.staticflickr.com/"+imagen.server+"/"+imagen.id+"_"+imagen.secret+".jpg";
-              return <img className="rainbowImage" width="100px" height="100px" key={index} src={img}/>
+          <br/>
+          <div className="row">
+            {this.state.colores.map((color, index) =>{
+              return <Columna key={index} busqueda={this.state.busqueda} color={color} url={this.props.url}/>
             })}
           </div>
         </div>
-      </div>
-
-
-
-    );
+      );
   }
 }
 

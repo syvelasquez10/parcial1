@@ -1,30 +1,16 @@
 import React, { Component } from 'react';
 import './App.css';
-import axios from 'axios';
-import Columna from './columna';
+import Busqueda from './busqueda';
 
-const ROOT_URL = "/flickr";
+const ROOT_URL = "http://localhost:9000/flickr";
 
 class App extends Component {
 
   constructor(props) {
     super(props);
     this.state = {
-      busqueda: '',
       imagenes: {}
     }
-    this.handleInputChange = this.handleInputChange.bind(this);
-  }
-
-  handleInputChange(event) {
-    axios.get(ROOT_URL+'/'+this.state.busqueda)
-    .then(response => {
-      console.log(response.data);
-    })
-  }
-
-  obtenerFotos () {
-
   }
 
   render() {
@@ -44,13 +30,7 @@ class App extends Component {
         <br/>
         <br/>
         <br/>
-        <div className="row">
-          <div className="col-md-5">
-            <input size="60" type="text" value={this.state.busqueda} onChange={this.handleInputChange} />
-          </div>
-        </div>
-
-        <Columna imagenes={this.state.imagenes}/>
+        <Busqueda url={ROOT_URL}/>
       </div>
     );
   }

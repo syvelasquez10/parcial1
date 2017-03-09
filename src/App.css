@@ -1,8 +1,11 @@
 .ref {
   float: right;
 }
-.noMargin{
+.noMargin {
   margin-bottom: 0;
+}
+.rainbowImage {
+  margin: 10px 10px 10px 10px;
 }
 
 @keyframes App-logo-spin {

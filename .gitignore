@@ -1,3 +1,5 @@
+/data
+
 #Keys
 ./server/api_key.txt
 ./server/api_secret.txt

@@ -52,9 +52,7 @@ class Busqueda extends Component {
           <h1 className="noMargin">Your rainbow</h1>
           <div className="row">
             {this.state.colores.map((color, index) =>{
-              console.log(this.state.valores[index]);
               if(this.state.valores[index]){
-                console.log("as");
                 return <Columna key={index} index={index} busqueda={this.state.busqueda} color={color} url={this.props.url} colores={this.state.colores}/>
               }
             })}

@@ -1,7 +1,7 @@
 # Parcial1 Node + Express + create-react-app + flickrApi
 The project is deploy at https://webdevparcial1sergiovelasquez.herokuapp.com/
 
-Creative touch: Know you can click one of the buttons to toogle the column of images of that color
+Creative touch: You can click one of the buttons to toogle the column of images of that color
 
 Based on boilerplate https://github.com/john-guerra/nodeExpressFlickr
 
